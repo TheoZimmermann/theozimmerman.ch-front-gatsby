@@ -1,10 +1,22 @@
-// tailwind.config.js
 module.exports = {
-  future: {},
-  purge: [],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class',
   theme: {
+    extend: {
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        primary: 'var(--primary)',
+        'text-main': 'var(--text-main)',
+      },
+      brightness: {
+        25: '.25',
+        175: '1.75',
+      },
+    },
+  },
+  variants: {
     extend: {},
   },
-  variants: {},
-  plugins: [],
-}
+  plugins: ['gatsby-plugin-postcss'],
+};

@@ -8,9 +8,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-
+import tw from 'twin.macro';
 import Header from './header';
 import './layout.css';
+import './marquee-animation.css';
+
+const SiteWrapper = tw.div`
+text-text-main  w-screen h-screen
+`;
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -20,12 +25,20 @@ const Layout = ({ children }) => {
           title
         }
       }
+      strapiGlobal {
+        Header {
+          link {
+            label
+            url
+          }
+        }
+      }
     }
   `);
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+    <SiteWrapper className="theme-dark bg-background">
+      <Header menuLinks={data.strapiGlobal.Header.link} />
       <div
         style={{
           margin: '0 auto',
@@ -43,7 +56,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </SiteWrapper>
   );
 };
 

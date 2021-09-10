@@ -8,7 +8,26 @@ module.exports = {
     THE_FLAG: false,
   },
   plugins: [
+    'gatsby-plugin-dark-mode',
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          'Karla',
+        ],
+        display: 'swap',
+      },
+    },
     'gatsby-plugin-emotion',
+    {
+      resolve: 'gatsby-source-strapi',
+      options: {
+        apiURL: 'http://localhost:1337',
+        queryLimit: 1000, // Defaults to 100
+        collectionTypes: ['page', 'project'],
+        singleTypes: ['homepage', 'global'],
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
@@ -43,7 +62,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        // The property ID; the tracking code won't be generated without it
+      // The property ID; the tracking code won't be generated without it
         trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID',
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,

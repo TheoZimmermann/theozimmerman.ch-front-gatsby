@@ -1,31 +1,48 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import tw from 'twin.macro';
-import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
-import Layout from '../components/layout.js';
+import { StaticQuery, graphql } from 'gatsby';
+import Marquee from 'react-fast-marquee';
+import Layout from '../components/layout';
 import SEO from '../components/seo.js';
 
-const Button = tw.button`
-  bg-blue-500 hover:bg-blue-800 text-white p-2 rounded
+const MovingTitle = tw.span`
+inline-flex whitespace-nowrap text-8xl px-24
+`;
+
+const MarqueeWrapper = tw.div`
+absolute inset-y-1/4 inset-x-0 z-10
 `;
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <StaticImage
-        src="../images/gatsby-astronaut.png"
-        alt="gatsby astronaut"
-      />
-    </div>
-    <Button>Activate</Button>
-    <Link to="/page-2/">Go to page 2</Link>
-    <Link to="/using-typescript/">Go to `Using TypeScript`</Link>
-  </Layout>
+  <StaticQuery
+    query={graphql` 
+  query homeQuery {
+    strapiHomepage {
+      url
+      intro
+      title
+    }
+  }
+  `}
+    render={(data) => (
+      <Layout>
+        <SEO title="Home" />
+        <Marquee gradient={false} className="fixed inset-0 w-screen h-screen flex justify-center items-center">
+          <h1 className="marquee__inner text-primary" aria-hidden="true">
+            <MovingTitle>
+              {data.strapiHomepage.title}
+            </MovingTitle>
+          </h1>
+        </Marquee>
+        <p>
+          {data.strapiHomepage.intro}
+        </p>
+      </Layout>
+    )}
+  />
+
 );
 
 export default IndexPage;

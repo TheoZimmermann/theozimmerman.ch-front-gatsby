@@ -1,17 +1,55 @@
 @tailwind base;
-
 h1 {
-  @apply text-2xl;
+    @apply text-2xl;
 }
+
 h2 {
-  @apply text-xl;
+    @apply text-xl;
 }
+
 h3 {
-  @apply text-lg;
+    @apply text-lg;
 }
+
 a {
-  @apply text-blue-600;
+    @apply text-blue-600;
 }
 
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'Migra';
+    src: local('Migra'), url(../fonts/Migra-Extrabold.ttf) format('truetype');
+}
+
+html,
+body {
+    font-family: "Karla", sans-serif;
+}
+
+h1,
+h2,
+h3,
+.big-link {
+    font-family: "Migra", sans-serif;
+}
+
+body.dark {
+    --primary: #FFC701;
+    --text-main: white;
+   background-color: #1E1E17;
+  }
+  
+  body.light {
+    --primary: #FFC701;
+    --text-main: #1E1E17;
+    background-color: #FEFAEC;
+  }
+
+  body.dark .svgMupo #letters path {
+      fill: #1E1E17;
+  }
+
+  body.light .svgMupo #letters path {
+    fill: white;
+}
