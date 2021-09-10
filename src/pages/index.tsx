@@ -7,12 +7,12 @@ import Marquee from 'react-fast-marquee';
 import Layout from '../components/layout';
 import SEO from '../components/seo.js';
 
-const MovingTitle = tw.span`
-inline-flex whitespace-nowrap text-8xl px-24
+const MovingTitle = tw.h1`
+inline-flex whitespace-nowrap text-9xl px-24 text-primary
 `;
 
 const MarqueeWrapper = tw.div`
-absolute inset-y-1/4 inset-x-0 z-10
+w-screen flex justify-center items-center h-screen inset-0 absolute z-10 overflow-hidden
 `;
 
 const IndexPage = () => (
@@ -29,13 +29,13 @@ const IndexPage = () => (
     render={(data) => (
       <Layout>
         <SEO title="Home" />
-        <Marquee gradient={false} className="fixed inset-0 w-screen h-screen flex justify-center items-center">
-          <h1 className="marquee__inner text-primary" aria-hidden="true">
+        <MarqueeWrapper>
+          <Marquee speed={150} gradient={false} className="z-1 w-full h-full flex justify-center items-center">
             <MovingTitle>
               {data.strapiHomepage.title}
             </MovingTitle>
-          </h1>
-        </Marquee>
+          </Marquee>
+        </MarqueeWrapper>
         <p>
           {data.strapiHomepage.intro}
         </p>

@@ -8,6 +8,7 @@ module.exports = {
     THE_FLAG: false,
   },
   plugins: [
+    'gatsby-plugin-sass',
     'gatsby-plugin-dark-mode',
     {
       resolve: 'gatsby-plugin-google-fonts',

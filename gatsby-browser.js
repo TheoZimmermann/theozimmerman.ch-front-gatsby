@@ -6,4 +6,4 @@
 
 // You can delete this file if you're not using it
 import 'tailwindcss/dist/base.min.css';
-import './src/components/layout.css';
+import './src/components/layout.scss';

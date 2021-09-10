@@ -1,0 +1,63 @@
+// Dark mode toggle button
+.dark-button {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    
+  
+    &:before,
+    &:after {
+      box-sizing: border-box;
+    }
+  
+    label {
+      position: relative;
+      display: block;
+      width: 45px;
+      height: 25px;
+      border-radius: 100px;
+      background-color: #b8a667;
+      overflow: hidden;
+      cursor: pointer;
+  
+      &:before,
+      &:after {
+        display: block;
+        position: absolute;
+        content: "";
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        top: 3px;
+        left: 3px;
+        transition: 0.5s ease;
+      }
+  
+      &:before {
+        @apply bg-primary;
+      }
+  
+      &:after {
+        background-color: #b8a667;
+        left: -58px;
+        transform: scale(0.00001);
+      }
+    }
+  
+    input[type="checkbox"] {
+      display: none;
+  
+      &:checked + label {
+        &:before {
+            @apply bg-primary;
+          transform: translateX(20px);
+        }
+  
+        &:after {
+          transform: translateX(75px) scale(1);
+        }
+      }
+    }
+  }
