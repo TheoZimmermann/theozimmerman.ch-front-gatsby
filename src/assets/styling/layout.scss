@@ -8,11 +8,15 @@ h2 {
 }
 
 h3 {
-    @apply text-lg;
+    @apply text-3xl;
 }
 
 a {
-    @apply text-blue-600;
+    @apply text-primary transition duration-200 ease-in-out;
+
+    &:hover {
+        @apply underline;
+    }
 }
 
 @tailwind components;
@@ -32,6 +36,7 @@ h2,
 h3,
 .big-link {
     font-family: "Migra", sans-serif;
+    font-weight: 900;
 }
 
 body.dark {
@@ -53,11 +58,17 @@ body {
                 fill: #1e1e17;
             }
         }
+        nav a.active {
+            color: white !important;
+        }
     }
 
     &.light {
         .svgMupo #letters path {
             fill: white;
+        }
+        nav a.active {
+            color: #1e1e17 !important;
         }
     }
 }

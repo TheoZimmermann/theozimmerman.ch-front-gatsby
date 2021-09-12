@@ -3,11 +3,41 @@ module.exports = {
     title: 'Gatsby TailwindCSS Starter',
     description: 'Kick off your next, great Gatsby project with this default starter with TailwindCSS and common dev tools. This barebones starter ships with the main Gatsby configuration files you might need.',
     author: '@kosvrouvas',
+    siteURL: 'localhost:8000',
   },
   flags: {
     THE_FLAG: false,
   },
   plugins: [
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-relative-images-v2',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 1280,
+              wrapperStyle: (fluidResult) => `flex:${_.round(fluidResult.aspectRatio, 2)};`,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-transition-link',
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/, // See below to configure properly
+        },
+      },
+    },
     'gatsby-plugin-sass',
     'gatsby-plugin-dark-mode',
     {
@@ -25,8 +55,8 @@ module.exports = {
       options: {
         apiURL: 'http://localhost:1337',
         queryLimit: 1000, // Defaults to 100
-        collectionTypes: ['page', 'project'],
-        singleTypes: ['homepage', 'global'],
+        collectionTypes: ['project'],
+        singleTypes: ['homepage', 'global', 'about-page'],
       },
     },
     'gatsby-plugin-react-helmet',
@@ -34,7 +64,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     {
@@ -57,7 +87,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/assets/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
     {

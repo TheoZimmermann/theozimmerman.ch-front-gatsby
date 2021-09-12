@@ -16,7 +16,12 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      textColor: ['active'],
+    },
   },
-  plugins: ['gatsby-plugin-postcss'],
+  plugins: [
+    'gatsby-plugin-postcss',
+    require('@tailwindcss/typography'),
+  ],
 };

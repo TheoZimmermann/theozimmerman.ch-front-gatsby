@@ -5,55 +5,59 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import tw from 'twin.macro';
 import Header from './header';
-import './layout.scss';
-import './marquee-animation.css';
+import Footer from './footer';
+import '../assets/styling/layout.scss';
 
 const SiteWrapper = tw.div`
 text-text-main  w-screen h-screen
 `;
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+interface LayoutProps {
+  children: ReactNode
+}
+
+const Layout = ({ children }: LayoutProps) => {
+  const data: any = useStaticQuery(graphql`
+  query MyQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    strapiGlobal {
+      Header {
+        link {
+          label
+          url
         }
       }
-      strapiGlobal {
-        Header {
-          link {
-            label
-            url
-          }
+      Footer {
+        link {
+          label
+          url
         }
       }
     }
-  `);
+  }
+`);
+
+  const HeaderLinks: Array<{ label: string, url: string }> = data.strapiGlobal.Header.link || [];
+  const FooterLinks: Array<{ label: string, url: string }> = data.strapiGlobal.Footer.link || [];
+  const isHome: boolean = true || false;
 
   return (
-    <SiteWrapper className="theme-dark bg-background">
-      <Header menuLinks={data.strapiGlobal.Header.link} />
-      <main>{children}</main>
-      <footer>
-        ©
-        {' '}
-        {new Date().getFullYear()}
-        , Built with
-        {' '}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-    </SiteWrapper>
+    <>
+      <SiteWrapper className="theme-dark bg-background">
+        <Header menuLinks={HeaderLinks} />
+        <main>{children}</main>
+        <Footer isFixed={isHome} menuLinks={FooterLinks} />
+      </SiteWrapper>
+    </>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

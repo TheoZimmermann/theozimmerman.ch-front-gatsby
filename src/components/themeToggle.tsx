@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
-import './dark-mode-toggle-button.scss';
+import '../assets/styling/dark-mode-toggle-button.scss';
 
 export default function ThemeToggle() {
   return (
