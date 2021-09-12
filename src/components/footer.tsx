@@ -8,7 +8,7 @@ text-primary block mt-2 lg:inline-block lg:mt-0 hover:underline font-medium text
 `;
 
 const StyledFooter = tw.footer`
-z-20 max-w-7xl container mx-auto px-4 sm:px-6
+z-20 max-w-7xl container mx-auto px-4 sm:px-6 py-6
 `;
 
 const FooterMenuWrapper = tw.div`
@@ -22,7 +22,7 @@ interface FooterProps {
 const Footer = ({ menuLinks }: FooterProps) => {
   const location = useLocation();
   return (
-    <StyledFooter className={`${location.pathname === '/' ? 'absolute inset-0 top-auto mb-6 mx-auto' : ''}`}>
+    <StyledFooter className={`${location.pathname === '/' ? 'absolute inset-0 top-auto mx-auto' : ''}`}>
       <FooterMenuWrapper>
         {menuLinks.map((res) => (
           <div key={res.label}>

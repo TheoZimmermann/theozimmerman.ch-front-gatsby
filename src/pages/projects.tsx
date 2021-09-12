@@ -22,9 +22,11 @@ const ProjectsPage = () => {
           title
           shortDescription
           featuredImage {
-            childImageSharp {
-                gatsbyImageData(width: 200)
+            localFile {
+              childImageSharp {
+                gatsbyImageData
               }
+            }
           }
         }
       }
@@ -42,7 +44,7 @@ const ProjectsPage = () => {
             <ProjectsContainer>
                 {Projects.map((res) => (
                     <div key={res.title}>
-                        <GatsbyImage image={getImage(res.featuredImage)} alt={res.title} />
+                        <GatsbyImage image={getImage(res.featuredImage.localFile)} alt={res.title} />
                     </div>
                 ))}
             </ProjectsContainer>

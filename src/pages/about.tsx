@@ -24,7 +24,7 @@ fixed left-0 bottom-0 w-32 h-32
 `;
 
 const AccordionBody = tw.div`
-border-l-2 border-primary  pl-6  prose prose-lg
+border-l-2 border-primary  pl-6  prose prose-lg text-text-main
 `;
 const StyledDetails = tw.details`
   py-6 sm:py-8 lg:py-10
