@@ -23,5 +23,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
     require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 };

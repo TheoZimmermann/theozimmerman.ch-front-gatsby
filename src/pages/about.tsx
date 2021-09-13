@@ -69,7 +69,7 @@ const AboutPage = () => {
                 </AccordionTitle>
               </summary>
               <AccordionBody>
-                <Markdown transformImageUri={(uri) => (uri.startsWith('http') ? uri : `${process.env.REACT_IMAGE_BASE_URL}${uri}`)}>
+                <Markdown transformImageUri={(uri) => (uri.startsWith('http') ? uri : `${process.env.API_URL}${uri}`)}>
                   {res.body}
                 </Markdown>
               </AccordionBody>
