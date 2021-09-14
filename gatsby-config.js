@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby TailwindCSS Starter',
@@ -60,7 +64,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: `.env.${process.env.API_URL}`,
+        apiURL: process.env.API_URL,
         queryLimit: 1000, // Defaults to 100
         collectionTypes: ['project'],
         singleTypes: ['homepage', 'global', 'about-page'],
