@@ -60,7 +60,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: `.env.${process.env.NODE_ENV}`,
+        apiURL: `.env.${process.env.API_URL}`,
         queryLimit: 1000, // Defaults to 100
         collectionTypes: ['project'],
         singleTypes: ['homepage', 'global', 'about-page'],
