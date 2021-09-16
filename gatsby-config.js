@@ -11,6 +11,7 @@ module.exports = {
   },
   flags: {
     THE_FLAG: false,
+    DEV_SSR: false,
   },
   plugins: [
     {
@@ -65,7 +66,7 @@ module.exports = {
       resolve: 'gatsby-source-strapi',
       options: {
         apiURL: process.env.API_URL,
-        queryLimit: 1000, // Defaults to 100
+        queryLimit: 5000, // Defaults to 100
         collectionTypes: ['project'],
         singleTypes: ['homepage', 'global', 'about-page'],
       },
