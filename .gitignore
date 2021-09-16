@@ -50,7 +50,7 @@ typings/
 
 # Output of 'npm pack'
 *.tgz
-
+F
 # dotenv environment variable files
 .env*
 
