@@ -16,6 +16,14 @@ body {
         details[open] summary .accordion-toggle {
             -webkit-text-fill-color: white;
             @apply ml-0;
+
+            h1,
+            h2,
+            h3,
+            h4,
+            .big-link {
+                color: white;
+            }
         }
     }
 
@@ -31,6 +39,14 @@ body {
             -webkit-text-fill-color: #1e1e17;
 
             @apply ml-0;
+
+            h1,
+            h2,
+            h3,
+            h4,
+            .big-link {
+                color: #1e1e17;
+            }
         }
     }
 }

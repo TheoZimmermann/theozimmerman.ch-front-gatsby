@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
@@ -23,6 +25,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
     require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
   ],
 };

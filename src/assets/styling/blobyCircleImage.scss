@@ -1,0 +1,35 @@
+.circle {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation: morph 3s linear infinite, scale 0.3s ease-in-out;
+
+    @apply transform transition-transform w-72 h-72 overflow-hidden;
+
+    img {
+        @apply w-full h-full;
+    }
+}
+
+.project-link {
+    &:hover .circle {
+        @apply transform scale-150;
+    }
+}
+
+@keyframes morph {
+    0%,
+    100% {
+        border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+    }
+    34% {
+        border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+    }
+    67% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+    }
+}
+
+.blobby-background {
+    background: url(../images/BlobbyBackgroundPattern.svg);
+
+    @apply w-screen h-screen bg-cover bg-repeat-y absolute inset-0;
+}

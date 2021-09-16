@@ -1,17 +1,19 @@
 import React from 'react';
-import tw from 'twin.macro';
+import tw, { css } from 'twin.macro';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import '../assets/styling/blobyCircleImage.scss';
 import BlobbyBackgroundPattern from '../assets/images/BlobbyBackgroundPattern.svg';
 
 const ProjectsContainer = tw.div`
-max-w-2xl mx-auto py-24 px-4 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8
+max-w-5xl mx-auto py-24 px-4 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8  z-20
 `;
 
-const BlobbyBackground = tw.span`
-w-full h-full absolute bg-repeat-y bg-cover z-0`;
+const BlobbyBackgroundWrapper = tw.div`
+absolute w-screen h-screen inset-0 z-0 bg-repeat
+`;
 
 const ProjectItemContainer = ({ projectIdx: number }) => `
 lg:col-start-1 flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8
@@ -47,30 +49,35 @@ function ProjectsPage() {
   const Projects: Array<{ body: string; title: string; shortDescription: string; featuredImage: any; }> = data.allStrapiProject.nodes || [];
   return (
     <Layout>
-      <BlobbyBackground style={{ backgroundImage: `url(${BlobbyBackgroundPattern})` }} />
+      <BlobbyBackgroundWrapper css={[
+        css`
+        background-image: url(../assets/images/BlobbyBackgroundPattern.svg);
+      `,
+      ]}
+      >
+        {/* {{ <BlobbyBackgroundPattern /> }}  */}
+      </BlobbyBackgroundWrapper>
       <SEO title="my projects" />
       <h1 className="invisible">
         Projects
       </h1>
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Protect your device</h2>
-        <p className="mt-4 text-gray-500">
-          As a digital creative, your laptop or tablet is at the center of your work. Keep your device safe with a
-          fabric sleeve that matches in quality and looks.
-        </p>
-      </div>
       <ProjectsContainer>
         <div className="mt-16 space-y-16">
           {Projects.map((res, projectIdx) => (
-            <div key={res.title} className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center">
+            <a key={res.title} href="/about" className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center project-link">
               <div
                 className={classNames(
                   projectIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8 xl:col-start-9',
-                  'mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4',
+                  ' mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4',
                 )}
               >
-                <h3 className="text-lg font-medium text-gray-900">{res.title}</h3>
-                <p className="mt-2 text-sm text-gray-500">{res.shortDescription}</p>
+                <h2 className="text-4xl text-primary">
+                  {res.title}
+                </h2>
+                <p className="mt-2 text-sm text-text-main">
+                  {res.shortDescription}
+                  <span aria-hidden="true"> &rarr;</span>
+                </p>
               </div>
               <div
                 className={classNames(
@@ -78,11 +85,11 @@ function ProjectsPage() {
                   'flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8',
                 )}
               >
-                <div className="aspect-w-5 aspect-h-2 rounded-lg bg-gray-100 overflow-hidden">
+                <div className="circle">
                   <GatsbyImage image={getImage(res.featuredImage.localFile)} alt={res.title} className="object-center object-cover" />
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </ProjectsContainer>

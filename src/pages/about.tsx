@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import '../assets/styling/about-accordion.scss';
 import BottomLeftBlob from '../assets/images/bottomLeftBlob.svg';
+import MyCv from '../assets/downloads/cv-ZimmermannTheo.pdf';
 
 const AccordionTitle = tw.h1`
  text-9xl cursor-pointer w-auto border border-transparent  
@@ -20,7 +21,7 @@ max-w-7xl container mx-auto px-4 sm:px-6 mt-16 lg:mt-24 mb-40
 `;
 
 const BottomLeftBlobWrapper = tw.div`
-fixed left-0 bottom-0 w-32 h-32 
+fixed left-0 bottom-0 w-64 h-48 
 `;
 
 const AccordionBody = tw.div`
@@ -28,6 +29,10 @@ border-l-2 border-primary  pl-6  prose prose-lg text-text-main
 `;
 const StyledDetails = tw.details`
   py-6 sm:py-8 lg:py-10
+`;
+
+const CvLink = tw.a`
+  p-4 text-text-main absolute inset-0 top-auto w-full
 `;
 
 const AboutPage = () => {
@@ -54,12 +59,6 @@ const AboutPage = () => {
       </h1>
 
       <AboutContainer>
-        <h4>
-          in a hurry ?
-          {' '}
-          <a href="../assets/downloads/cv-ZimmermannTheo.pdf" download> here is my cv </a>
-          {' '}
-        </h4>
         {AboutTiles.map((res) => (
           <div key={res.title}>
             <StyledDetails>
@@ -78,6 +77,15 @@ const AboutPage = () => {
         ))}
         <BottomLeftBlobWrapper>
           <BottomLeftBlob />
+
+          <CvLink href={MyCv} download className="big-link">
+            {' '}
+            download my cv
+            {' '}
+            <span aria-hidden="true"> &rarr;</span>
+            {' '}
+          </CvLink>
+
         </BottomLeftBlobWrapper>
       </AboutContainer>
     </Layout>
