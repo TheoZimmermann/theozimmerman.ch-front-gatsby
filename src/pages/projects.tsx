@@ -1,13 +1,14 @@
 import React from 'react';
-import tw, { css } from 'twin.macro';
+import tw from 'twin.macro';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import '../assets/styling/blobyCircleImage.scss';
 
 const ProjectsContainer = tw.div`
-max-w-2xl mx-auto py-24 px-4 sm:px-6 sm:py-32 lg:max-w-4xl lg:px-8  z-30
+max-w-2xl mx-auto py-24 px-4 sm:px-6 sm:py-32 lg:max-w-3xl lg:px-8  z-30
 `;
 
 const ProjectItemContainer = ({ projectIdx: number }) => `
@@ -25,9 +26,12 @@ function ProjectsPage() {
   const data: any = useStaticQuery(graphql`
   query projectsQuery {
     allStrapiProject {
-        nodes {
+        edges {
+          node {
           body
           title
+          slug
+          strapiId
           shortDescription
           featuredImage {
             localFile {
@@ -38,10 +42,11 @@ function ProjectsPage() {
           }
         }
       }
+      }
   }
 `);
 
-  const Projects: Array<{ body: string; title: string; shortDescription: string; featuredImage: any; }> = data.allStrapiProject.nodes || [];
+  const Projects: Array<{ node: { body: string; title: string; slug: string, shortDescription: string; featuredImage: any; } }> = data.allStrapiProject.edges || [];
   return (
     <Layout>
       {/* <span className=" blobby-background" /> */}
@@ -52,7 +57,14 @@ function ProjectsPage() {
       <ProjectsContainer>
         <div className="mt-16 space-y-16 lg:space-y-32">
           {Projects.map((res, projectIdx) => (
-            <a key={res.title} href="/about" className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center project-link">
+            <AniLink
+              cover
+              bg="#ffc701"
+              direction="bottom"
+              to={res.node.slug}
+              key={res.node.title}
+              className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center project-link"
+            >
               <div
                 className={classNames(
                   projectIdx % 2 === 0 ? 'lg:col-start-1  lg:justify-end lg:text-right' : 'lg:text-left lg:justify-start lg:col-start-8 xl:col-start-9',
@@ -60,10 +72,10 @@ function ProjectsPage() {
                 )}
               >
                 <h2 className="text-6xl text-primary">
-                  {res.title}
+                  {res.node.title}
                 </h2>
                 <p className="mt-2 text-lg text-text-main">
-                  {res.shortDescription}
+                  {res.node.shortDescription}
                   <span aria-hidden="true"> &rarr;</span>
                 </p>
               </div>
@@ -74,10 +86,10 @@ function ProjectsPage() {
                 )}
               >
                 <div className="circle">
-                  <GatsbyImage image={getImage(res.featuredImage.localFile)} alt={res.title} className="object-center object-cover" />
+                  <GatsbyImage image={getImage(res.node.featuredImage.localFile)} alt={res.node.title} className="object-center object-cover" />
                 </div>
               </div>
-            </a>
+            </AniLink>
           ))}
         </div>
       </ProjectsContainer>

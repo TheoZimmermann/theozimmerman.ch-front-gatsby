@@ -47,14 +47,13 @@ const Layout = ({ children }: LayoutProps) => {
 
   const HeaderLinks: Array<{ label: string, url: string }> = data.strapiGlobal.Header.link || [];
   const FooterLinks: Array<{ label: string, url: string }> = data.strapiGlobal.Footer.link || [];
-  const isHome: boolean = true || false;
 
   return (
     <>
       <SiteWrapper className="theme-dark bg-background">
         <Header menuLinks={HeaderLinks} footerLinks={FooterLinks} />
         <main>{children}</main>
-        <Footer isFixed={isHome} menuLinks={FooterLinks} />
+        <Footer menuLinks={FooterLinks} />
       </SiteWrapper>
     </>
   );

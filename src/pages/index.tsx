@@ -23,12 +23,17 @@ w-screen h-screen inset-0 absolute left-auto flex justify-center md:justify-end 
 
 const IntroWrapper = tw.div`
  h-auto absolute inset-0 top-auto 
-text-text-main text-base  z-40 whitespace-pre-wrap
-container mx-auto p-4 w-full mb-8  flex flex-col max-w-7xl
-sm:p-6 sm:text-lg sm:block
-md:text-2xl md:mb-10
+text-text-main z-40 whitespace-pre-wrap
+w-full mb-8 pb-6
+ md:mb-10
  lg:mb-0
+`;
 
+const IntroMarkdown = tw.div`
+w-full px-4 lg:px-6 text-base text-text-main
+max-w-7xl mx-auto flex flex-col
+ sm:text-lg 
+md:text-2xl 
 `;
 
 const IndexPage = () => {
@@ -59,9 +64,11 @@ const IndexPage = () => {
         </Marquee>
       </MarqueeWrapper>
       <IntroWrapper>
-        <Markdown>
-          {Intro}
-        </Markdown>
+        <IntroMarkdown>
+          <Markdown>
+            {Intro}
+          </Markdown>
+        </IntroMarkdown>
       </IntroWrapper>
     </Layout>
   );
