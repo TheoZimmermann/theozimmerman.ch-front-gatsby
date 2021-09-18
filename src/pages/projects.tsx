@@ -50,13 +50,13 @@ function ProjectsPage() {
         Projects
       </h1>
       <ProjectsContainer>
-        <div className="mt-16 space-y-16">
+        <div className="mt-16 space-y-16 lg:space-y-32">
           {Projects.map((res, projectIdx) => (
             <a key={res.title} href="/about" className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center project-link">
               <div
                 className={classNames(
                   projectIdx % 2 === 0 ? 'lg:col-start-1  justify-end text-right' : 'text-left justify-start lg:col-start-8 xl:col-start-9',
-                  ' flex flex-col mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4 z-20',
+                  ' flex flex-col mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4 z-20 mx-10',
                 )}
               >
                 <h2 className="text-6xl text-primary">
