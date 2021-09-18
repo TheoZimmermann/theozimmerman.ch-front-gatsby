@@ -2,16 +2,10 @@
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
     animation: morph 3s linear infinite, scale 0.3s ease-in-out;
 
-    @apply transform transition-transform w-72 h-72 overflow-hidden;
+    @apply transform transition-transform w-80 h-80 overflow-hidden;
 
     img {
         @apply w-full h-full;
-    }
-}
-
-.project-link {
-    &:hover .circle {
-        @apply transform scale-150;
     }
 }
 
@@ -28,8 +22,16 @@
     }
 }
 
-.blobby-background {
-    background: url(../images/BlobbyBackgroundPattern.svg);
+.project-link {
+    &:hover .circle {
+        @apply transform scale-150;
+    }
+}
 
-    @apply w-screen h-screen bg-cover bg-repeat-y absolute inset-0;
+.blobby-background {
+    @apply w-full h-full bg-cover absolute inset-0;
+
+    background-image: url("/BlobbyBackgroundPattern.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }

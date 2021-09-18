@@ -16,7 +16,9 @@ body {
         details[open] summary .accordion-toggle {
             -webkit-text-fill-color: white;
             @apply ml-0;
+        }
 
+        .accordion-body {
             h1,
             h2,
             h3,
@@ -35,11 +37,7 @@ body {
             }
         }
 
-        details[open] summary .accordion-toggle {
-            -webkit-text-fill-color: #1e1e17;
-
-            @apply ml-0;
-
+        .accordion-body {
             h1,
             h2,
             h3,
@@ -47,6 +45,12 @@ body {
             .big-link {
                 color: #1e1e17;
             }
+        }
+
+        details[open] summary .accordion-toggle {
+            -webkit-text-fill-color: #1e1e17;
+
+            @apply ml-0;
         }
     }
 }
