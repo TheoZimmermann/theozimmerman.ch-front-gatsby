@@ -52,7 +52,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <SiteWrapper className="theme-dark bg-background">
-        <Header menuLinks={HeaderLinks} />
+        <Header menuLinks={HeaderLinks} footerLinks={FooterLinks} />
         <main>{children}</main>
         <Footer isFixed={isHome} menuLinks={FooterLinks} />
       </SiteWrapper>

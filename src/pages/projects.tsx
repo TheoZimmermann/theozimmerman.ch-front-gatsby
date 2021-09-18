@@ -7,7 +7,7 @@ import SEO from '../components/seo';
 import '../assets/styling/blobyCircleImage.scss';
 
 const ProjectsContainer = tw.div`
-max-w-4xl mx-auto py-24 px-4 sm:px-6 sm:py-32 lg:max-w-5xl lg:px-8  z-30
+max-w-2xl mx-auto py-24 px-4 sm:px-6 sm:py-32 lg:max-w-3xl lg:px-8  z-30
 `;
 
 const ProjectItemContainer = ({ projectIdx: number }) => `
@@ -55,8 +55,8 @@ function ProjectsPage() {
             <a key={res.title} href="/about" className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center project-link">
               <div
                 className={classNames(
-                  projectIdx % 2 === 0 ? 'lg:col-start-1  justify-end text-right' : 'text-left justify-start lg:col-start-8 xl:col-start-9',
-                  ' flex flex-col mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4 z-20 mx-10',
+                  projectIdx % 2 === 0 ? 'lg:col-start-1  lg:justify-end lg:text-right' : 'lg:text-left lg:justify-start lg:col-start-8 xl:col-start-9',
+                  ' flex flex-col justify-center mt-6 text-center lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4 z-20 mx-10',
                 )}
               >
                 <h2 className="text-6xl text-primary">
@@ -69,8 +69,8 @@ function ProjectsPage() {
               </div>
               <div
                 className={classNames(
-                  projectIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5 jutify-start' : 'justify-end lg:col-start-1',
-                  'flex flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8 z-10',
+                  projectIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5 lg:jutify-start' : 'lg:justify-end lg:col-start-1',
+                  'flex flex-auto justify-center lg:row-start-1 lg:col-span-7 xl:col-span-8 z-10',
                 )}
               >
                 <div className="circle">

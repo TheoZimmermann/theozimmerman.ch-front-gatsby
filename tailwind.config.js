@@ -10,6 +10,7 @@ module.exports = {
         current: 'currentColor',
         primary: 'var(--primary)',
         'text-main': 'var(--text-main)',
+        darkBg: '#1e1e17',
       },
       brightness: {
         25: '.25',

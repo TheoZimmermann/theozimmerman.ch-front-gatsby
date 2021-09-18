@@ -8,7 +8,7 @@ text-primary block mt-2 lg:inline-block lg:mt-0 hover:underline font-medium text
 `;
 
 const StyledFooter = tw.footer`
-z-20 max-w-7xl container mx-auto px-4 sm:px-6 py-6
+z-20 max-w-7xl  mx-auto px-4 sm:px-6 py-6 hidden md:block
 `;
 
 const FooterMenuWrapper = tw.div`

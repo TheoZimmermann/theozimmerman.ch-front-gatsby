@@ -9,19 +9,28 @@ import BottomLeftBlob from '../assets/images/bottomLeftBlob.svg';
 import MyCv from '../assets/downloads/cv-ZimmermannTheo.pdf';
 
 const AccordionTitle = tw.h1`
- text-9xl cursor-pointer w-auto border border-transparent  
+cursor-pointer w-auto border border-transparent  
  transition-all duration-200 ease-in-out 
- ml-10
+ml-2
+ text-5xl
+ sm:text-6xl
+ md:text-7xl md:ml-6
+ lg:text-8xl
+ xl:text-9xl xl:ml-10
  hover:ml-0
  transform translate-y-4 hover:translate-y-0
 `;
 
 const AboutContainer = tw.div`
-max-w-7xl container mx-auto px-4 sm:px-6 mt-16 lg:mt-24 mb-40
+max-w-7xl container mx-auto px-4 sm:px-6 mt-16 lg:mt-24 pb-40
 `;
 
 const BottomLeftBlobWrapper = tw.div`
-fixed left-0 bottom-0 w-64 h-48 
+fixed left-0 bottom-0 w-auto h-24
+sm:h-32
+md:h-48
+lg:h-52
+xl:w-64 xl:h-48 
 `;
 
 const AccordionBody = tw.div`

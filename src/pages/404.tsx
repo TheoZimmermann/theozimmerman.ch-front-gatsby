@@ -1,16 +1,14 @@
-import { Link } from 'gatsby';
 import * as React from 'react';
-import tw, { css, theme } from 'twin.macro';
-import Layout from '../components/layout';
-import '../assets/styling/not-found.scss';
+import tw, { css } from 'twin.macro';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import Layout from '../components/layout';
 
 const Wrapper = tw.div`
-min-h-screen bg-cover bg-top
+min-h-screen bg-cover bg-top flex items-center
 `;
 
 const Container = tw.div`
-max-w-7xl mx-auto px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-8 lg:py-48 h-full w-full flex flex-col justify-center items-center
+max-w-7xl mx-auto px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-8 lg:py-48 h-full w-full  flex-col justify-center 
 `;
 
 const MainTitle = tw.h1`
