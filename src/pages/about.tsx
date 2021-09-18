@@ -22,7 +22,7 @@ ml-2
 `;
 
 const AboutContainer = tw.div`
-max-w-7xl container mx-auto px-4 sm:px-6 mt-16 lg:mt-24 pb-40
+max-w-4xl mx-auto px-4 sm:px-6 mt-16 lg:mt-24 pb-40
 `;
 
 const BottomLeftBlobWrapper = tw.div`

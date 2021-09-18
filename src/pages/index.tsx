@@ -24,9 +24,10 @@ w-screen h-screen inset-0 absolute left-auto flex justify-center md:justify-end 
 const IntroWrapper = tw.div`
  h-auto absolute inset-0 top-auto 
 text-text-main text-base  z-40 whitespace-pre-wrap
-container mx-auto p-4 w-full mb-8  flex flex-col
+container mx-auto p-4 w-full mb-8  flex flex-col max-w-7xl
 sm:p-6 sm:text-lg sm:block
-md:text-2xl md:mb-20
+md:text-2xl md:mb-10
+ lg:mb-0
 
 `;
 

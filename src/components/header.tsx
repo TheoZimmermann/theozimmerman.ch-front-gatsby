@@ -20,7 +20,7 @@ cursor-pointer
 `;
 
 const StyledContainer = tw.nav`
-py-4 z-30 flex flex-row items-center justify-between container mx-auto px-4 sm:px-6 mx-auto bg-transparent fixed inset-0 bottom-auto w-full 
+py-4 z-30 flex flex-row items-center justify-between mx-auto px-4 sm:px-6 mx-auto bg-transparent fixed inset-0 bottom-auto w-full  max-w-7xl
 `;
 
 const LinksWrapper = tw.div`
