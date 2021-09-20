@@ -1,55 +1,65 @@
 import * as React from 'react';
-import tw, { css } from 'twin.macro';
+import tw from 'twin.macro';
+import {
+    ArrowNarrowDownIcon,
+} from '@heroicons/react/outline';
+import scrollTo from 'gatsby-plugin-smoothscroll';
+import TopRightBlob from '../../assets/images/ProjectTopRightBlob.svg';
+import BottomLeftBlob from '../../assets/images/ProjectBottomLeftBlob.svg';
 
 const Wrapper = tw.div`
-min-h-screen bg-cover bg-top flex items-center
+h-screen bg-cover  flex justify-center items-center flex-col space-y-20
 `;
 
-const Container = tw.div`
-max-w-7xl mx-auto px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-8 lg:py-48 h-full w-full  flex-col justify-center 
+const LandingTitle = tw.h1`
+text-center text-text-main text-[15vw] z-10
+`;
+const TopRightBlobWrapper = tw.div`
+absolute inset-0 left-auto bottom-auto w-[60vw] h-1/2 z-0 flex justify-end items-end
 `;
 
-const MainTitle = tw.h1`
-mt-2 text-5xl font-extrabold text-white tracking-tight sm:text-5xl
+const TagsWrapper = tw.div`
+text-center flex justify-center items-center space-x-10 font-medium
 `;
 
-const Paragraph = tw.p`
-mt-2 text-xl font-medium text-white
+const BottomLeftBlobWrapper = tw.div`
+absolute inset-0 right-auto top-auto w-[35vw] h-1/2 z-20
 `;
 
+const BottomLink = tw.button`
+absolute inset-0 top-auto  w-full flex justify-center items-center pb-20 animate-bounce z-40 text-text-main hover:text-primary
+`;
 interface LandingProps {
-    project: {
-        body: string,
-        title: string,
-        slug: string,
-        strapiId: number,
-        shortDescription: string,
-        featuredImage: {
-            localFile: {
-                childImageSharp: {
-                    gatsbyImageData: string,
-                }
-            }
-        }
+    title: string,
+    tags: {
+        label: string,
     }
 }
 
-const Landing = ({ project }: LandingProps) => (
-    <Wrapper
-        css={[
-            css`
-        background-image: url("/landscape.jpg");
-      `,
-        ]}
-    >
-        <Container>
-            <MainTitle>
-                Hey, you seem lost
-            </MainTitle>
-            <Paragraph>
-                Take a deep breath and chill
-            </Paragraph>
-        </Container>
+const Landing = ({ title, tags }: LandingProps) => (
+    <Wrapper>
+        <TopRightBlobWrapper>
+            <TopRightBlob />
+        </TopRightBlobWrapper>
+        <BottomLeftBlobWrapper>
+            <BottomLeftBlob />
+        </BottomLeftBlobWrapper>
+        <LandingTitle>
+            {' '}
+            {title}
+            {' '}
+        </LandingTitle>
+        <TagsWrapper>
+            {tags.map((tag, id) => (
+                <span>
+                    #
+                    {tag.label}
+                </span>
+            ))}
+        </TagsWrapper>
+        <BottomLink onClick={() => scrollTo('#body')}>
+            <ArrowNarrowDownIcon className="h-8 w-8" aria-hidden="true" />
+        </BottomLink>
     </Wrapper>
 );
 export default Landing;

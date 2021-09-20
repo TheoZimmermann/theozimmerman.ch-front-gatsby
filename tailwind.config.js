@@ -4,6 +4,10 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
   theme: {
+    fontFamily: {
+      title: ['"Migra"', 'serif'],
+      body: ['"Karla"', 'sans-serif'],
+    },
     extend: {
       colors: {
         transparent: 'transparent',

@@ -60,7 +60,7 @@ function ProjectsPage() {
             <AniLink
               cover
               bg="#ffc701"
-              direction="bottom"
+              direction="left"
               to={`${res.node.slug}`}
               key={res.node.title}
               className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center project-link"

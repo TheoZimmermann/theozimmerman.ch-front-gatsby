@@ -28,14 +28,14 @@ a {
 
 html,
 body {
-    font-family: "Karla", sans-serif;
+    @apply font-body;
 }
 
 h1,
 h2,
 h3,
 .big-link {
-    font-family: "Migra", sans-serif;
+    @apply font-title;
     font-weight: 900;
 }
 
@@ -71,4 +71,9 @@ body {
             color: #1e1e17 !important;
         }
     }
+}
+
+.blobby-header {
+    background-image: url("/BlobbyHeaderBackground.svg");
+    background-repeat: no-repeat;
 }

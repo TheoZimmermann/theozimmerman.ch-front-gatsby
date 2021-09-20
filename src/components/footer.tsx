@@ -21,7 +21,6 @@ interface FooterProps {
 
 const Footer = ({ menuLinks }: FooterProps) => {
   const location = useLocation();
-  console.log(location);
   return (
     <StyledFooter className={`${location.pathname === '/' || location.pathname == '/404' ? 'absolute inset-0 top-auto mx-auto' : ''}`}>
       <FooterMenuWrapper>

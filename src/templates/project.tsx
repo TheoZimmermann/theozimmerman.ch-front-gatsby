@@ -20,17 +20,20 @@ query projectQuery($slug: String!) {
           }
         }
       }
+      tags {
+        label
+      }
   }
 }
 `;
 
-export const Project = ({ data }) => {
+export const Project = ({ data, pageContext }) => {
   const project = data.strapiProject;
 
   return (
     <ProjectLayout>
-      <ProjectLanding project={project} />
-      <ProjectBody project={project} />
+      <ProjectLanding tags={project.tags} title={project.title} />
+      <ProjectBody title={project.title} body={project.body} next={pageContext.next} />
     </ProjectLayout>
   );
 };
