@@ -77,3 +77,7 @@ body {
     background-image: url("/BlobbyHeaderBackground.svg");
     background-repeat: no-repeat;
 }
+
+html {
+    scroll-behavior: smooth;
+}

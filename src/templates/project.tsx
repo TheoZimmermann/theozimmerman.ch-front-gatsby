@@ -23,6 +23,12 @@ query projectQuery($slug: String!) {
       tags {
         label
       }
+      childStrapiProjectContent {
+        childMdx {
+          tableOfContents
+          body
+        }
+      }
   }
 }
 `;
@@ -33,7 +39,12 @@ export const Project = ({ data, pageContext }) => {
   return (
     <ProjectLayout>
       <ProjectLanding tags={project.tags} title={project.title} />
-      <ProjectBody title={project.title} body={project.body} next={pageContext.next} />
+      <ProjectBody
+        toc={project.childStrapiProjectContent.childMdx.tableOfContents.items}
+        title={project.title}
+        body={project.body}
+        next={pageContext.next}
+      />
     </ProjectLayout>
   );
 };

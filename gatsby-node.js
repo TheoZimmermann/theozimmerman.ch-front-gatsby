@@ -69,9 +69,35 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           slug: project.node.slug,
           name: project.node.title,
-          next: project.next?.slug,
+          next: project.next ? project.next.slug : null,
         },
       });
     });
   });
+};
+
+const crypto = require('crypto');
+
+module.exports.onCreateNode = async ({ node, actions, createNodeId }) => {
+  if (node.internal.type === 'StrapiProject') {
+    const newNode = {
+      id: createNodeId(`StrapiProjectContent-${node.id}`),
+      parent: node.id,
+      children: [],
+      internal: {
+        content: node.body || ' ',
+        type: 'StrapiProjectContent',
+        mediaType: 'text/markdown',
+        contentDigest: crypto
+          .createHash('md5')
+          .update(node.body || ' ')
+          .digest('hex'),
+      },
+    };
+    actions.createNode(newNode);
+    actions.createParentChildLink({
+      parent: node,
+      child: newNode,
+    });
+  }
 };
