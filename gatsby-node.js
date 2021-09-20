@@ -5,24 +5,24 @@
  */
 
 // You can delete this file if you're not using it
-exports.onCreateWebpackConfig = ({ actions, plugins, stage }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        path: require.resolve('path-browserify'),
-      },
-      fallback: {
-        fs: false,
-        assert: require.resolve('assert/'),
-      },
-    },
-  });
-  if (stage === 'build-javascript' || stage === 'develop') {
-    actions.setWebpackConfig({
-      plugins: [plugins.provide({ process: 'process/browser' })],
-    });
-  }
-};
+// exports.onCreateWebpackConfig = ({ actions, plugins, stage }) => {
+//   actions.setWebpackConfig({
+//     resolve: {
+//       alias: {
+//         path: require.resolve('path-browserify'),
+//       },
+//       fallback: {
+//         fs: false,
+//         assert: require.resolve('assert/'),
+//       },
+//     },
+//   });
+//   if (stage === 'build-javascript' || stage === 'develop') {
+//     actions.setWebpackConfig({
+//       plugins: [plugins.provide({ process: 'process/browser' })],
+//     });
+//   }
+// };
 const path = require('path');
 
 exports.createPages = ({ graphql, actions }) => {
@@ -30,8 +30,8 @@ exports.createPages = ({ graphql, actions }) => {
   return graphql(`
   query projectsQuery {
     allStrapiProject {
-        edges {
-          node {
+      edges {
+        node {
           body
           title
           slug
@@ -44,13 +44,13 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          next {
-            slug
-            title
-          }
+        }
+        next {
+          title
+          slug
         }
       }
-      }
+    }
   }
 `, { limit: 1000 }).then((result) => {
     if (result.errors) {
@@ -64,9 +64,10 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.allStrapiProject.edges.forEach((project) => {
       createPage({
       // Path for this page — required
-        path: `/project${project.node.slug}`,
+        path: `/projects/${project.node.slug}`,
         component: ProjectTemplate,
         context: {
+          slug: project.node.slug,
           name: project.node.title,
           next: project.next?.slug,
         },

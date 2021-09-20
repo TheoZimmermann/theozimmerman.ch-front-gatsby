@@ -61,7 +61,7 @@ function ProjectsPage() {
               cover
               bg="#ffc701"
               direction="bottom"
-              to={res.node.slug}
+              to={`${res.node.slug}`}
               key={res.node.title}
               className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center project-link"
             >
