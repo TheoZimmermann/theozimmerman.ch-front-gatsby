@@ -12,7 +12,7 @@ h-screen bg-cover  flex justify-center items-center flex-col space-y-20
 `;
 
 const LandingTitle = tw.h1`
-text-center text-text-main text-[15vw] z-10
+text-center text-text-main text-[12vw] z-10
 `;
 const TopRightBlobWrapper = tw.div`
 absolute inset-0 left-auto bottom-auto w-[60vw] h-1/2 z-0 flex justify-end items-end
