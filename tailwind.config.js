@@ -1,7 +1,12 @@
-const colors = require('tailwindcss/colors');
+const remark = require('remark');
 
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+  purge: {
+    content: ['./src/**/*.{html,md}', './src/**/*.{js,jsx,ts,tsx}'],
+    transform: {
+      md: (content) => remark().process(content),
+    },
+  },
   darkMode: 'class',
   theme: {
     fontFamily: {

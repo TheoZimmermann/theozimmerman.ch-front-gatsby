@@ -1,9 +1,9 @@
 {
-  "name": "theozimmermann.ch - made with gatsby",
+  "name": "theozimmermann website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby and TailwindCSS",
-  "version": "0.3.0",
-  "author": "Kostas Vrouvas <hello@kosvrouvas.com>",
+  "description": "My personal website, made with JAMStack using Gatsby and Strapi",
+  "version": "0.1.0",
+  "author": "Théo Zimmermann <tzimm.pro@gmail.com>",
   "dependencies": {
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
