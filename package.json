@@ -1,5 +1,5 @@
 {
-  "name": "theozimmermann website",
+  "name": "theozimmermann-website",
   "private": true,
   "description": "My personal website, made with JAMStack using Gatsby and Strapi",
   "version": "0.1.0",
