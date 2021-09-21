@@ -4,8 +4,8 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby TailwindCSS Starter',
-    description: 'Kick off your next, great Gatsby project with this default starter with TailwindCSS and common dev tools. This barebones starter ships with the main Gatsby configuration files you might need.',
+    title: 'Theozimmermann.ch - Made with gatsby',
+    description: 'My personal website, front-end developer and UI designer in Switzerland, now looking for work.',
     author: '@kosvrouvas',
     siteURL: 'theozimmermann.ch',
   },
