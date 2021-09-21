@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800&display=swap');
+
 @tailwind base;
 h1 {
     @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl;
@@ -28,7 +30,7 @@ a {
 
 html,
 body {
-    @apply font-body;
+    @apply font-body overflow-x-hidden;
 }
 
 h1,
@@ -78,6 +80,23 @@ body {
     background-repeat: no-repeat;
 }
 
-html {
-    scroll-behavior: smooth;
+// html {
+//     scroll-behavior: smooth;
+// }
+
+#gatsby-plugin-page-progress {
+    @apply bg-text-main;
+}
+
+.project-sidebar {
+    
+    a {
+        &:visited
+         {
+            @apply text-text-main;
+        }
+        &:active {
+            @apply text-primary;
+        }
+        }
 }

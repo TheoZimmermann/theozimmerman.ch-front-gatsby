@@ -1,7 +1,7 @@
 import * as React from 'react';
 import tw from 'twin.macro';
 import {
-    ArrowNarrowDownIcon,
+  ArrowNarrowDownIcon,
 } from '@heroicons/react/outline';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import TopRightBlob from '../../assets/images/ProjectTopRightBlob.svg';
@@ -19,11 +19,11 @@ absolute inset-0 left-auto bottom-auto w-[60vw] h-1/2 z-0 flex justify-end items
 `;
 
 const TagsWrapper = tw.div`
-text-center flex justify-center items-center space-x-10 font-medium
+text-center flex justify-center items-center space-x-3 text-sm md:text-base md:space-x-10 font-medium
 `;
 
 const BottomLeftBlobWrapper = tw.div`
-absolute inset-0 right-auto top-auto w-[35vw] h-1/2 z-20
+absolute inset-0 right-auto top-auto w-[35vw] h-64 md:h-1/2 z-20
 `;
 
 const BottomLink = tw.button`
@@ -37,29 +37,29 @@ interface LandingProps {
 }
 
 const Landing = ({ title, tags }: LandingProps) => (
-    <Wrapper>
-        <TopRightBlobWrapper>
-            <TopRightBlob />
-        </TopRightBlobWrapper>
-        <BottomLeftBlobWrapper>
-            <BottomLeftBlob />
-        </BottomLeftBlobWrapper>
-        <LandingTitle>
-            {' '}
-            {title}
-            {' '}
-        </LandingTitle>
-        <TagsWrapper>
-            {tags.map((tag, id) => (
-                <span>
-                    #
-                    {tag.label}
-                </span>
-            ))}
-        </TagsWrapper>
-        <BottomLink onClick={() => scrollTo('#body')}>
-            <ArrowNarrowDownIcon className="h-8 w-8" aria-hidden="true" />
-        </BottomLink>
-    </Wrapper>
+  <Wrapper>
+    <TopRightBlobWrapper>
+      <TopRightBlob />
+    </TopRightBlobWrapper>
+    <BottomLeftBlobWrapper>
+      <BottomLeftBlob />
+    </BottomLeftBlobWrapper>
+    <LandingTitle>
+      {' '}
+      {title}
+      {' '}
+    </LandingTitle>
+    <TagsWrapper>
+      {tags.map((tag, id) => (
+        <span>
+          #
+          {tag.label}
+        </span>
+      ))}
+    </TagsWrapper>
+    <BottomLink onClick={() => scrollTo('#body')}>
+      <ArrowNarrowDownIcon className="h-8 w-8" aria-hidden="true" />
+    </BottomLink>
+  </Wrapper>
 );
 export default Landing;

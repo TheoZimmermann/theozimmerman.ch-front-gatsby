@@ -11,7 +11,7 @@ import ThemeToggle from './themeToggle';
 
 const LinkStyle = tw.styled(AniLink)`
 text-base font-medium text-primary block mt-2 
-md:font-black md:text-xl
+md:text-xl
 lg:inline-block md:mt-0 
 hover:underline active:text-text-main
 `;

@@ -21,8 +21,8 @@ module.exports = {
         includePaths: [{ regex: '^/projects/' }],
         height: 4,
         prependToBody: true,
-        color: '#ffc701',
-        headerHeight: 100,
+        color: 'var(--text-main)',
+        headerHeight: 0,
       },
     },
     {

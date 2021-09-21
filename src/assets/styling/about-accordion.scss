@@ -18,7 +18,8 @@ body {
             @apply ml-0;
         }
 
-        .accordion-body {
+        .accordion-body,
+        .markdown-container  {
             h1,
             h2,
             h3,
@@ -41,7 +42,8 @@ body {
             }
         }
 
-        .accordion-body {
+        .accordion-body,
+        .markdown-container {
             h1,
             h2,
             h3,
@@ -53,6 +55,8 @@ body {
             a {
                 @apply text-primary underline;
             }
+            
+           
         }
 
         details[open] summary .accordion-toggle {
@@ -103,4 +107,8 @@ details {
             @apply text-primary;
         }
     }
+}
+
+em {
+    @apply px-2 py-1 bg-primary;
 }
