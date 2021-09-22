@@ -15,7 +15,7 @@ cursor-pointer rounded-full border border-2 border-text-main w-8 h-8  md:w-12 md
 `;
 
 const CloseWrapper = tw.div`
-fixed inset-0 bottom-auto px-10 flex justify-between items-center z-30
+fixed inset-0 bottom-auto px-10 flex justify-between items-center z-40
 `;
 
 const close = () => (

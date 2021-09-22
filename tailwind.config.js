@@ -1,5 +1,6 @@
 const remark = require('remark');
 
+const bgColorPrimary = '#ffc701';
 module.exports = {
   purge: {
     content: ['./src/**/*.{html,md}', './src/**/*.{js,jsx,ts,tsx}'],
@@ -14,6 +15,12 @@ module.exports = {
       body: ['"Karla"', 'sans-serif'],
     },
     extend: {
+      backgroundColor: {
+        primary: bgColorPrimary,
+      },
+      borderColor: {
+        primary: bgColorPrimary,
+      },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',

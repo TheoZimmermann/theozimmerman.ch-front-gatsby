@@ -16,16 +16,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-mdx',
     {
-      resolve: 'gatsby-plugin-page-progress',
-      options: {
-        includePaths: [{ regex: '^/projects/' }],
-        height: 4,
-        prependToBody: true,
-        color: 'var(--text-main)',
-        headerHeight: 0,
-      },
-    },
-    {
       resolve: 'gatsby-background-image-es5',
       options: {
         // add your own characters to escape, replacing the default ':/'

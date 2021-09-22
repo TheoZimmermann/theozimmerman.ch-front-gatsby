@@ -59,6 +59,7 @@ function ProjectsPage() {
           {Projects.map((res, projectIdx) => (
             <AniLink
               cover
+              preventScrollJump={false}
               bg="#ffc701"
               direction="left"
               to={`${res.node.slug}`}

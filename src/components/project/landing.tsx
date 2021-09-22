@@ -51,7 +51,7 @@ const Landing = ({ title, tags }: LandingProps) => (
     </LandingTitle>
     <TagsWrapper>
       {tags.map((tag, id) => (
-        <span>
+        <span key={id}>
           #
           {tag.label}
         </span>

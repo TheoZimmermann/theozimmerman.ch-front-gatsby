@@ -10,10 +10,6 @@ import {
 import { ContentsList } from './tocList';
 import HeaderBlobbyBackground from '../../assets/images/BlobbyHeaderBackground.svg';
 
-const BodyWrapper = tw.div`
-
-`;
-
 const ContentWrapper = tw.div`
 min-w-0 w-full flex-auto lg:static lg:max-h-full lg:overflow-visible flex justify-center
 `;
@@ -40,35 +36,33 @@ interface BodyProps {
 
 const Body = ({
   body, next, title, toc,
-}: BodyProps) => {
-  console.table(toc);
-  return (
-    <div id="body" className="flex flex-col">
-      <HeaderWrapper>
-        <BlobbyBackgroundHeaderWrapper>
-          <HeaderBlobbyBackground />
-        </BlobbyBackgroundHeaderWrapper>
-        <h2 className="text-4xl md:text-6xl md:pt-12 text-center text-text-main z-30">
-          {title}
-        </h2>
-      </HeaderWrapper>
-      <ContentWrapper>
-        <div className="flex">
-          <div className="hidden md:text-base md:block flex-none w-40 -ml-32">
-            <div className="project-sidebar flex flex-col justify-between overflow-y-auto sticky max-h-(screen-18) pt-24 pb-6 top-20">
-              <span className="text-text-main uppercase font-bold mb-2 text-sm"> Table of contents </span>
-              {toc && <ContentsList items={toc} />}
-            </div>
+}: BodyProps) => (
+  <div id="body" className="flex flex-col">
+    <HeaderWrapper>
+      <BlobbyBackgroundHeaderWrapper>
+        <HeaderBlobbyBackground />
+      </BlobbyBackgroundHeaderWrapper>
+      <h2 className="text-4xl md:text-6xl md:pt-12 text-center text-text-main z-30">
+        {title}
+      </h2>
+    </HeaderWrapper>
+    <ContentWrapper>
+      <div className="flex">
+        <div className="hidden md:text-base md:block flex-none w-40 -ml-32">
+          <div className="project-sidebar flex flex-col justify-between overflow-y-auto sticky max-h-(screen-18) pt-24 pb-6 top-20">
+            <span className="text-text-main uppercase font-bold mb-2 text-sm"> Table of contents </span>
+            {toc && <ContentsList items={toc} />}
           </div>
-          <BodyContainer className="markdown-container">
-            <Markdown
-              rehypePlugins={[rehypeHighlight, rehypeSlug]}
-              transformImageUri={(uri) => (uri.startsWith('http') ? uri : `${process.env.API_URL}${uri}`)}
-            >
-              {body}
-            </Markdown>
+        </div>
+        <BodyContainer className="markdown-container">
+          <Markdown
+            rehypePlugins={[rehypeHighlight, rehypeSlug]}
+            transformImageUri={(uri) => (uri.startsWith('http') ? uri : `${process.env.API_URL}${uri}`)}
+          >
+            {body}
+          </Markdown>
 
-            {next && (
+          {next && (
             <AniLink
               class="big-link text-text-main  text-center w-full my-20 text-2xl flex justify-center items-center"
               cover
@@ -81,14 +75,13 @@ const Body = ({
               Next Project
               <ArrowNarrowRightIcon className="ml-3 text-primary w-6 h-6" />
             </AniLink>
-            )}
-          </BodyContainer>
+          )}
+        </BodyContainer>
 
-        </div>
+      </div>
 
-      </ContentWrapper>
+    </ContentWrapper>
 
-    </div>
-  );
-};
+  </div>
+);
 export default Body;

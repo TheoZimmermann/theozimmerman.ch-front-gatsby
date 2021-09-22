@@ -80,9 +80,9 @@ body {
     background-repeat: no-repeat;
 }
 
-// html {
-//     scroll-behavior: smooth;
-// }
+html {
+    scroll-behavior: smooth;
+}
 
 #gatsby-plugin-page-progress {
     @apply bg-text-main;
@@ -95,6 +95,7 @@ body {
     text-overflow: ellipsis;
     }
     a {
+        @apply cursor-pointer;
         &:visited
          {
             @apply text-text-main;

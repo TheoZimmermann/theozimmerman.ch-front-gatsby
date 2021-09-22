@@ -94,14 +94,15 @@ details::hover {
 
 details,
 .markdown-container {
-  
-    div {
         h1,
         h2,
         h3,
         h4,
         p,
         strong,
+        p strong,
+        code,
+        p code,
         blockquote,
         blockquote p {
             @apply text-text-main;
@@ -110,9 +111,8 @@ details,
         a {
             @apply text-primary;
         }
-    }
 }
 
 em {
-    @apply px-2 py-1 bg-primary;
+    @apply px-1 py-1.5 bg-primary bg-opacity-30;
 }
