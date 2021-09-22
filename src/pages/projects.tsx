@@ -6,6 +6,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import '../assets/styling/blobyCircleImage.scss';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const ProjectsContainer = tw.div`
 max-w-2xl mx-auto py-24 px-4 sm:px-6 sm:py-32 lg:max-w-3xl lg:px-8  z-30
@@ -59,7 +60,13 @@ function ProjectsPage() {
           {Projects.map((res, projectIdx) => (
             <AniLink
               cover
-              preventScrollJump={false}
+              entry={{
+                trigger: () => { scrollTo('0, 0'); },
+                delay: 0.6,
+                length: 0,
+                state: {},
+                zIndex: 1,
+              }}
               bg="#ffc701"
               direction="left"
               to={`${res.node.slug}`}
