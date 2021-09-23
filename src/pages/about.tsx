@@ -77,7 +77,33 @@ const AboutPage = () => {
                 </AccordionTitle>
               </summary>
               <AccordionBody className="accordion-body">
-                <Markdown transformImageUri={(uri) => (uri.startsWith('http') ? uri : `${process.env.API_URL}${uri}`)}>
+                <Markdown
+                  components={{
+                    p: ({ node, children }) => {
+                      if (node.children[0].tagName === 'img') {
+                        const image: any = node.children[0];
+                        return (
+                          <figure className="image">
+                            <img
+                              src={image.properties.src}
+                              alt={image.properties.alt}
+                              width="600"
+                              height="300"
+                            />
+                            <figcaption>
+                              {' '}
+                              {image.properties.alt}
+                              {' '}
+                            </figcaption>
+                          </figure>
+                        );
+                      }
+                      // Return default child if it's not an image
+                      return <p>{children}</p>;
+                    },
+                  }}
+                  transformImageUri={(uri) => (uri.startsWith('http') ? uri : `${process.env.API_URL}${uri}`)}
+                >
                   {res.body}
                 </Markdown>
               </AccordionBody>
