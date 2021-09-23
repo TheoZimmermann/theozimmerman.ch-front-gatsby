@@ -8,7 +8,7 @@ import TopRightBlob from '../../assets/images/ProjectTopRightBlob.svg';
 import BottomLeftBlob from '../../assets/images/ProjectBottomLeftBlob.svg';
 
 const Wrapper = tw.div`
-h-screen bg-cover  flex justify-center items-center flex-col space-y-20
+relative h-screen w-screen bg-cover  flex justify-center items-center flex-col space-y-20 
 `;
 
 const LandingTitle = tw.h1`
@@ -27,7 +27,7 @@ absolute inset-0 right-auto top-auto w-[35vw] h-64 md:h-1/2 z-20
 `;
 
 const BottomLink = tw.button`
-absolute inset-0 top-auto  w-full flex justify-center items-center pb-20 animate-bounce z-40 text-text-main hover:text-primary
+absolute inset-0 top-auto  w-full flex justify-center items-center pb-20 animate-bounce z-10 text-text-main hover:text-primary
 `;
 interface LandingProps {
     title: string,

@@ -4,7 +4,7 @@ import '../assets/styling/layout.scss';
 import CloseProject from './project/close';
 
 const SiteWrapper = tw.div`
- text-text-main  w-screen h-screen
+ text-text-main min-h-full
  `;
 
 interface LayoutProps {
@@ -12,12 +12,12 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => (
-    <>
-        <SiteWrapper className="theme-dark bg-background">
-            <CloseProject />
-            <main>{children}</main>
-        </SiteWrapper>
-    </>
+  <>
+    <SiteWrapper className="theme-dark bg-background">
+      <CloseProject />
+      <main>{children}</main>
+    </SiteWrapper>
+  </>
 );
 
 export default Layout;

@@ -60,17 +60,10 @@ function ProjectsPage() {
           {Projects.map((res, projectIdx) => (
             <AniLink
               cover
-              entry={{
-                trigger: () => { scrollTo('0, 0'); },
-                delay: 0.6,
-                length: 0,
-                state: {},
-                zIndex: 1,
-              }}
               bg="#ffc701"
               direction="left"
               to={`${res.node.slug}`}
-              key={res.node.title}
+              key={res.node.title + projectIdx.toString()}
               className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center project-link"
             >
               <div

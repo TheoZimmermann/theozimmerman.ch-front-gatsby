@@ -53,9 +53,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-transition-link',
-    },
-    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
@@ -160,6 +157,9 @@ module.exports = {
         develop: false,
         tailwind: true,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-transition-link',
     },
   ],
 };
