@@ -23,48 +23,54 @@
 //     });
 //   }
 // };
+const Path = require('path');
+
 exports.onCreateWebpackConfig = ({
   stage,
   loaders,
-  getConfig,
   actions,
 }) => {
-  const config = getConfig();
-  config.module.rules = [
-    // Omit the default rule where test === '\.jsx?$'
-    ...config.module.rules.filter(
-      (rule) => String(rule.test) !== String(/\.jsx?$/),
-    ),
-
-    // Recreate it with custom exclude filter
-    {
-      ...loaders.js(),
-
-      test: /\.jsx?$/,
-
-      // Exclude all node_modules from transpilation, except for 'swiper' and 'dom7'
-      exclude: (modulePath) => /node_modules/.test(modulePath),
-    },
-  ];
-  if (stage.startsWith('develop') && config.resolve) {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'react-dom': '@hot-loader/react-dom',
-    };
-  }
   actions.setWebpackConfig({
+    module: {
+      rules: stage === 'build-html'
+        ? [
+          {
+            test: /ScrollMagic/,
+            use: loaders.null(),
+          },
+        ]
+        : [],
+    },
     resolve: {
-      modules: ['node_modules'],
       alias: {
-        TweenLite: 'gsap/src/minified/TweenLite.min.js',
-        TweenMax: 'gsap/src/minified/TweenMax.min.js',
-        TimelineLite: 'gsap/src/minified/TimelineLite.min.js',
-        TimelineMax: 'gsap/src/minified/TimelineMax.min.js',
-        ScrollMagic: 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js',
-        'animation.gsap':
-          'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js',
-        'debug.addIndicators':
-          'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js',
+        TweenLite: Path.resolve(
+          'node_modules',
+          'gsap/src/uncompressed/TweenLite.js',
+        ),
+        TweenMax: Path.resolve(
+          'node_modules',
+          'gsap/src/uncompressed/TweenMax.js',
+        ),
+        TimelineLite: Path.resolve(
+          'node_modules',
+          'gsap/src/uncompressed/TimelineLite.js',
+        ),
+        TimelineMax: Path.resolve(
+          'node_modules',
+          'gsap/src/uncompressed/TimelineMax.js',
+        ),
+        ScrollMagic: Path.resolve(
+          'node_modules',
+          'scrollmagic/scrollmagic/uncompressed/ScrollMagic.js',
+        ),
+        'animation.gsap': Path.resolve(
+          'node_modules',
+          'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js',
+        ),
+        'debug.addIndicators': Path.resolve(
+          'node_modules',
+          'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js',
+        ),
       },
     },
   });
