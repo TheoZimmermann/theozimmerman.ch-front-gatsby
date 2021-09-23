@@ -30,6 +30,29 @@ exports.onCreateWebpackConfig = ({
   plugins,
   actions,
 }) => {
+  const config = getConfig();
+  config.module.rules = [
+    // Omit the default rule where test === '\.jsx?$'
+    ...config.module.rules.filter(
+      (rule) => String(rule.test) !== String(/\.jsx?$/),
+    ),
+
+    // Recreate it with custom exclude filter
+    {
+      ...loaders.js(),
+
+      test: /\.jsx?$/,
+
+      // Exclude all node_modules from transpilation, except for 'swiper' and 'dom7'
+      exclude: (modulePath) => /node_modules/.test(modulePath),
+    },
+  ];
+  if (stage.startsWith('develop') && config.resolve) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'react-dom': '@hot-loader/react-dom',
+    };
+  }
   actions.setWebpackConfig({
     resolve: {
       modules: ['node_modules'],
