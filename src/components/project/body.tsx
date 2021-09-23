@@ -79,7 +79,7 @@ const Body = ({
             </div>
           </div>
           <Markdown
-            plugins={[rehypeSlug]}
+            rehypePlugins={[rehypeSlug]}
             components={{
               p: ({ node, children }) => {
                 if (node.children[0].tagName === 'img') {
