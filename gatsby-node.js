@@ -25,9 +25,8 @@
 // };
 exports.onCreateWebpackConfig = ({
   stage,
-  rules,
   loaders,
-  plugins,
+  getConfig,
   actions,
 }) => {
   const config = getConfig();
