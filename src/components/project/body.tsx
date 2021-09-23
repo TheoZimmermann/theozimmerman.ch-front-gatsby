@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import Markdown from 'react-markdown';
-import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
-import rehypeFigure from 'rehype-figure';
 import tw from 'twin.macro';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import ScrollMagic from 'scrollmagic';
@@ -17,7 +15,7 @@ w-full  flex-auto flex justify-center h-auto min-h-screen
 `;
 
 const BodyContainer = tw.div`
-min-w-0 flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16 max-w-prose ml-12 mr-auto prose lg:prose-xl text-text-main
+min-w-0 flex-auto relative px-4 sm:px-6 xl:px-8 py-24 lg:pb-16 max-w-prose mx-auto prose lg:prose-xl text-text-main
 `;
 
 const HeaderWrapper = tw.div`
@@ -68,20 +66,44 @@ const Body = ({
         </h2>
       </HeaderWrapper>
       <ContentWrapper id="content-wrapper">
-        <div
-          id="pinned-sidebar"
-          className="hidden xl:text-sm xl:block flex-none w-64 pl-8 mr-8"
-        >
-          <div
-            className="w-40 flex-col justify-between pt-24 pb-6 top-20 project-sidebar text-base "
-          >
-            <span className="text-text-main uppercase font-bold mb-2 text-sm"> Table of contents </span>
-            {toc && <ContentsList items={toc} />}
-          </div>
-        </div>
         <BodyContainer className="markdown-container">
+          <div
+            id="pinned-sidebar"
+            className="hidden xl:text-sm xl:block absolute inset-auto -left-64 flex-none w-64 pl-8 mr-8"
+          >
+            <div
+              className="w-52 flex-col justify-between pt-4 pb-6 project-sidebar text-base px-4 bg-primary bg-opacity-10 "
+            >
+              <span className="text-text-main uppercase font-bold mb-2 text-sm"> Table of contents </span>
+              {toc && <ContentsList items={toc} />}
+            </div>
+          </div>
           <Markdown
-            rehypePlugins={[rehypeHighlight, rehypeSlug, rehypeFigure]}
+            plugins={[rehypeSlug]}
+            components={{
+              p: ({ node, children }) => {
+                if (node.children[0].tagName === 'img') {
+                  const image: any = node.children[0];
+                  return (
+                    <figure className="image">
+                      <img
+                        src={image.properties.src}
+                        alt={image.properties.alt}
+                        width="600"
+                        height="300"
+                      />
+                      <figcaption>
+                        {' '}
+                        {image.properties.alt}
+                        {' '}
+                      </figcaption>
+                    </figure>
+                  );
+                }
+                // Return default child if it's not an image
+                return <p>{children}</p>;
+              },
+            }}
             transformImageUri={(uri) => (uri.startsWith('http') ? uri : `${process.env.API_URL}${uri}`)}
           >
             {body}
@@ -89,7 +111,7 @@ const Body = ({
 
           {next && (
           <AniLink
-            class="big-link text-text-main  text-center w-full my-20 text-2xl flex justify-center items-center"
+            class="big-link text-text-main hover:text-primary group text-center w-full my-20 text-2xl flex justify-center items-center"
             cover
             bg="#ffc701"
             direction="left"
@@ -98,7 +120,7 @@ const Body = ({
           >
             {' '}
             Next Project
-            <ArrowNarrowRightIcon className="ml-3 text-primary w-6 h-6" />
+            <ArrowNarrowRightIcon className="group-hover:ml-6 ml-3 text-primary w-6 h-6" />
           </AniLink>
           )}
         </BodyContainer>

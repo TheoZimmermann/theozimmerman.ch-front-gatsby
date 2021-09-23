@@ -12,7 +12,7 @@ relative h-screen w-screen bg-cover  flex justify-center items-center flex-col s
 `;
 
 const LandingTitle = tw.h1`
-text-center text-text-main text-[12vw] z-10
+text-center text-text-main text-[10vw] z-10 px-[2vw]
 `;
 const TopRightBlobWrapper = tw.div`
 absolute inset-0 left-auto bottom-auto w-[60vw] h-1/2 z-0 flex justify-end items-end
@@ -27,7 +27,7 @@ absolute inset-0 right-auto top-auto w-[35vw] h-64 md:h-1/2 z-20
 `;
 
 const BottomLink = tw.button`
-absolute inset-0 top-auto  w-full flex justify-center items-center pb-20 animate-bounce z-10 text-text-main hover:text-primary
+mt-[5vh] w-full flex justify-center items-center pb-20 animate-bounce z-10 text-text-main hover:text-primary
 `;
 interface LandingProps {
     title: string,
