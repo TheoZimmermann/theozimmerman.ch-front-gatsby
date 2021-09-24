@@ -4,9 +4,9 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Theozimmermann.ch - Made with gatsby',
+    title: 'Theozimmermann.ch - Front end developer',
     description: 'My personal website, front-end developer and UI designer in Switzerland, now looking for work.',
-    author: '@kosvrouvas',
+    author: '@TheoZimmermann',
     siteURL: 'theozimmermann.ch',
   },
   flags: {
@@ -109,7 +109,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/assets/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/assets/images/mupo-icon.png', // This path is relative to the root of the site.
       },
     },
     {
