@@ -56,19 +56,8 @@ body {
                 @apply text-primary underline transform  transition-all ease-in-out duration-300;
             }
 
-            .big-link:hover {
-                @apply text-primary;
-
-                svg {
-                    @apply transform translate-x-4;
-                }
-            }
-
-            svg {
-                @apply transform transition-all ease-in-out duration-300;
-            }
-            
-           
+      
+        
         }
 
         details[open] summary .accordion-toggle {
@@ -125,6 +114,20 @@ details[open] summary~*,
         a {
             @apply text-primary;
         }
+
+        .big-link {
+
+            svg {
+                @apply transform transition-all ease-in-out duration-300;
+            }
+        &:hover {
+            @apply text-primary;
+
+            svg {
+                @apply transform translate-x-4;
+            }
+        }
+    }
 }
 
 em {

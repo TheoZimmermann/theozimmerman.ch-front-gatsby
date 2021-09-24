@@ -33,10 +33,6 @@ interface HeaderProps {
   footerLinks: Array<{ label: string, url: string }>
 }
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
-
 const Header = ({ menuLinks, footerLinks }: HeaderProps) => (
 
   <Popover className="relative w-full">

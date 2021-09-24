@@ -1,12 +1,15 @@
 import React from 'react';
 import tw from 'twin.macro';
 import { useStaticQuery, graphql } from 'gatsby';
-import Markdown from 'react-markdown';
+import {
+  ArrowNarrowRightIcon,
+} from '@heroicons/react/outline';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import '../assets/styling/about-accordion.scss';
 import BottomLeftBlob from '../assets/images/bottomLeftBlob.svg';
 import MyCv from '../assets/downloads/cv-ZimmermannTheo.pdf';
+import RenderedMarkdown from '../components/markdown';
 
 const AccordionTitle = tw.h1`
 cursor-pointer w-auto border border-transparent  
@@ -44,6 +47,10 @@ const CvLink = tw.a`
   p-4 text-text-main absolute inset-0 top-auto w-full
 `;
 
+const StyledArrowIcon = tw.styled(ArrowNarrowRightIcon)`
+ml-3 text-primary w-6 h-6
+`;
+
 const AboutPage = () => {
   const data: any = useStaticQuery(graphql`
   query aboutQuery {
@@ -77,35 +84,7 @@ const AboutPage = () => {
                 </AccordionTitle>
               </summary>
               <AccordionBody className="accordion-body">
-                <Markdown
-                  components={{
-                    p: ({ node, children }) => {
-                      if (node.children[0].tagName === 'img') {
-                        const image: any = node.children[0];
-                        return (
-                          <figure className="image">
-                            <img
-                              src={image.properties.src}
-                              alt={image.properties.alt}
-                              width="600"
-                              height="300"
-                            />
-                            <figcaption>
-                              {' '}
-                              {image.properties.alt}
-                              {' '}
-                            </figcaption>
-                          </figure>
-                        );
-                      }
-                      // Return default child if it's not an image
-                      return <p>{children}</p>;
-                    },
-                  }}
-                  transformImageUri={(uri) => (uri.startsWith('http') ? uri : `${process.env.API_URL}${uri}`)}
-                >
-                  {res.body}
-                </Markdown>
+                <RenderedMarkdown body={res.body} />
               </AccordionBody>
             </StyledDetails>
           </div>
@@ -117,7 +96,7 @@ const AboutPage = () => {
             {' '}
             download my cv
             {' '}
-            <span aria-hidden="true"> &rarr;</span>
+            <StyledArrowIcon />
             {' '}
           </CvLink>
 

@@ -14,12 +14,24 @@ const CloseLink = tw.styled(AniLink)`
 cursor-pointer rounded-full border border-2 border-text-main w-8 h-8  md:w-12 md:h-12 text-text-main flex justify-center items-center hover:bg-text-main hover:text-primary
 `;
 
-const CloseWrapper = tw.div`
+const StyledXIcon = tw.styled(XIcon)`
+h-6 w-6 md:h-8 md:w-8
+`;
+
+const StyledWrapper = tw.div`
 fixed inset-0 bottom-auto px-10 flex justify-between items-center z-40
 `;
 
+const HeaderActions = tw.div`
+flex flex-row space-x-3 justify-center items-center
+`;
+
+const ToggleWrapper = tw.span`
+hidden sm:flex
+`;
+
 const close = () => (
-  <CloseWrapper>
+  <StyledWrapper>
     <LogoLink
       hex="#ffc701"
       paintDrip
@@ -27,10 +39,10 @@ const close = () => (
     >
       <Logo />
     </LogoLink>
-    <div className="flex flex-row space-x-3 justify-center items-center">
-      <span className="hidden sm:flex">
+    <HeaderActions>
+      <ToggleWrapper>
         <ThemeToggle />
-      </span>
+      </ToggleWrapper>
       <CloseLink
         bg="#ffc701"
         cover
@@ -38,9 +50,9 @@ const close = () => (
         to="/projects"
       >
         <span className="sr-only">Close menu</span>
-        <XIcon className="h-6 w-6 md:h-8 md:w-8" aria-hidden="true" />
+        <StyledXIcon aria-hidden="true" />
       </CloseLink>
-    </div>
-  </CloseWrapper>
+    </HeaderActions>
+  </StyledWrapper>
 );
 export default close;

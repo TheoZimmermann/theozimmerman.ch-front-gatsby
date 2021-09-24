@@ -24,6 +24,7 @@ w-screen h-screen inset-0 absolute left-auto flex justify-center md:justify-end 
 const IntroWrapper = tw.div`
  h-auto absolute inset-0 top-auto 
 text-text-main z-40 whitespace-pre-wrap
+pointer-events-none
 w-full mb-8 pb-6
  md:mb-10
  lg:mb-0
@@ -64,7 +65,7 @@ const IndexPage = () => {
         </Marquee>
       </MarqueeWrapper>
       <IntroWrapper>
-        <IntroMarkdown>
+        <IntroMarkdown className="intro-markdown">
           <Markdown>
             {Intro}
           </Markdown>

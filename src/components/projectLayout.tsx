@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import tw from 'twin.macro';
 import '../assets/styling/layout.scss';
-import CloseProject from './project/close';
+import Header from './project/landingHeader';
 
 const SiteWrapper = tw.div`
  text-text-main min-h-full
@@ -14,7 +14,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => (
   <>
     <SiteWrapper className="theme-dark bg-background">
-      <CloseProject />
+      <Header />
       <main>{children}</main>
     </SiteWrapper>
   </>

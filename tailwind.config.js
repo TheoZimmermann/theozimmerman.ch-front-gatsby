@@ -36,6 +36,7 @@ module.exports = {
   },
   variants: {
     extend: {
+      fill: ['hover', 'focus'],
       textColor: ['active'],
     },
   },
