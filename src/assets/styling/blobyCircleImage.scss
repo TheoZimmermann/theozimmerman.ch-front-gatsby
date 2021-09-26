@@ -21,23 +21,3 @@
         border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
     }
 }
-
-.project-link {
-    &:hover {
-        h2 {
-            @apply underline;
-        }
-        .circle {
-            @apply transform scale-105 filter-none;
-        }
-        @apply no-underline;
-    }
-}
-
-.blobby-background {
-    @apply w-full h-full bg-cover absolute inset-0;
-
-    background-image: url("/BlobbyBackgroundPattern.svg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}

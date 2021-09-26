@@ -1,0 +1,42 @@
+body.dark {
+    --primary: #ffc701;
+    --text-main: white;
+    background-color: $primaryDark;
+}
+
+body.light {
+    --primary: #ffc701;
+    --text-main: #1e1e17;
+    background-color: $primaryLight;
+}
+
+body {
+    &.dark {
+        .svgMupo {
+            #letters path {
+                fill: $primaryDark;
+            }
+
+            &:hover {
+                @apply  text-primary;
+            }
+        }
+        nav a.active {
+            color: white !important;
+        }
+    }
+
+    &.light {
+        .svgMupo {
+            &:hover {
+                @apply text-primary;
+            }
+            #letters path {
+            fill: white;
+            }
+        }
+        nav a.active {
+            color: $primaryDark !important;
+        }
+    }
+}
