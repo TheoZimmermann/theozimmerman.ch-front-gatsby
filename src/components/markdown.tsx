@@ -1,6 +1,8 @@
 import React from 'react';
 import Markdown from 'react-markdown';
 import rehypeSlug from 'rehype-slug';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 
 interface RenderedMarkdownProps {
     body: string,
@@ -17,12 +19,16 @@ const RenderedMarkdown = ({
           const image: any = node.children[0];
           return (
             <figure className="image">
-              <img
-                src={image.properties.src}
-                alt={image.properties.alt}
-                width="600"
-                height="300"
-              />
+              <Zoom
+                overlayBgColorEnd="#ffc701"
+                overlayBgColorStart="#ffc701"
+              >
+                <img
+                  className="w-full"
+                  src={image.properties.src}
+                  alt={image.properties.alt}
+                />
+              </Zoom>
               <figcaption>
                 {' '}
                 {image.properties.alt}
