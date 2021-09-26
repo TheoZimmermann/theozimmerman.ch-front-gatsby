@@ -18,7 +18,7 @@ w-screen flex justify-center items-center h-screen inset-0 absolute overflow-hid
 `;
 
 const BlobWrapper = tw.div`
-w-screen h-screen inset-0 absolute left-auto flex justify-center md:justify-end items-center px-10 md:pl-0 md:pr-20 z-20 dark:mix-blend-difference mix-blend-screen
+w-screen h-screen inset-0 absolute left-auto flex justify-center md:justify-end items-center px-10 md:pl-0 md:pr-20 z-20 dark:mix-blend-difference mix-blend-screen z-30 pointer-events-none
 `;
 
 const IntroWrapper = tw.div`

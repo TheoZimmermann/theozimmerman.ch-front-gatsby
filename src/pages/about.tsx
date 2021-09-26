@@ -6,7 +6,6 @@ import {
 } from '@heroicons/react/outline';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import '../assets/styling/about-accordion.scss';
 import BottomLeftBlob from '../assets/images/bottomLeftBlob.svg';
 import MyCv from '../assets/downloads/cv-ZimmermannTheo.pdf';
 import RenderedMarkdown from '../components/markdown';
