@@ -7,3 +7,12 @@ html {
 }
 
 @import 'variables.scss', 'fonts.scss', 'dark-light-body.scss', 'markdown.scss';
+
+/* du texte sélectionné sera jaune sur fond rouge */
+::-moz-selection {
+    @apply bg-primary text-white;
+  }
+  
+  ::selection {
+    @apply bg-primary text-white;
+  }
