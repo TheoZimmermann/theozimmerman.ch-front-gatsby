@@ -60,7 +60,13 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        implementation: require('sass'),
+        additionalData: `@import "${__dirname}/src/assets/styling/variables";`,
+      },
+    },
     'gatsby-plugin-dark-mode',
     {
       resolve: 'gatsby-plugin-google-fonts',
