@@ -14,6 +14,7 @@ const RenderedMarkdown = ({
   body,
 }: RenderedMarkdownProps) => (
   <Markdown
+    linkTarget="_blank"
     rehypePlugins={[rehypeSlug]}
     components={{
       p: ({ node, children }) => {
