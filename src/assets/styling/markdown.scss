@@ -141,3 +141,17 @@ em {
 .intro-markdown a {
     @apply pointer-events-auto;
 }
+
+.accordion-tile {
+    &:first-child {
+        @apply inline-block;
+
+        .accordion-body figure {
+            @apply float-left pr-4;
+
+            img {
+               @apply mt-0;
+            }
+        }
+    }
+}
