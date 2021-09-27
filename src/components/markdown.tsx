@@ -4,6 +4,8 @@ import rehypeSlug from 'rehype-slug';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
+import '../assets/styling/markdown.scss';
+
 interface RenderedMarkdownProps {
     body: string,
 }
