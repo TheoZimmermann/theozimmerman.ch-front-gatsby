@@ -11,7 +11,11 @@ body.light {
 }
 
 .svgMupo {
-    @apply text-text-main;
+    fill: var(--text-main);
+
+    &:hover {
+        fill: var(--primary);
+    }
 }
 
 body {
@@ -19,10 +23,6 @@ body {
         .svgMupo {
             #letters path {
                 fill: $primaryDark;
-            }
-
-            &:hover {
-                @apply text-primary;
             }
         }
         nav a.active {
@@ -32,9 +32,6 @@ body {
 
     &.light {
         .svgMupo {
-            &:hover {
-                @apply text-primary;
-            }
             #letters path {
                 fill: white;
             }
