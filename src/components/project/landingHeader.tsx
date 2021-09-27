@@ -6,6 +6,7 @@ import {
 } from '@heroicons/react/outline';
 import ThemeToggle from '../themeToggle';
 import Logo from '../../assets/images/logo.svg';
+import '../../assets/styling/dark-light-body.scss';
 
 const LogoLink = tw.styled(AniLink)`
 cursor-pointer  mt-2 md:mt-6 

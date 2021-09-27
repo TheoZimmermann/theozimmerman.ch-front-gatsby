@@ -9,6 +9,8 @@ import {
 import Logo from '../assets/images/logo.svg';
 import ThemeToggle from './themeToggle';
 
+import '../assets/styling/dark-light-body.scss';
+
 const LinkStyle = tw.styled(AniLink)`
 text-base font-medium text-primary block mt-2 
 md:text-xl
