@@ -6,7 +6,7 @@ html {
     scroll-behavior: smooth;
 }
 
-@import 'variables.scss', 'fonts.scss', 'dark-light-body.scss', 'markdown.scss';
+@import './variables.scss', './fonts.scss', './dark-light-body.scss', './markdown.scss';
 
 /* du texte sélectionné sera jaune sur fond rouge */
 ::-moz-selection {
