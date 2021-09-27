@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import tw from 'twin.macro';
 import { useStaticQuery, graphql } from 'gatsby';
 import {
@@ -7,8 +7,9 @@ import {
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BottomLeftBlob from '../assets/images/bottomLeftBlob.svg';
-import MyCv from '../assets/downloads/cv-ZimmermannTheo.pdf';
+import MyCv from '/static/resume-ZimmermannTheo.pdf';
 import RenderedMarkdown from '../components/markdown';
+import Scroll from '../components/scrollTop';
 
 const AccordionTitle = tw.h1`
 cursor-pointer w-auto border border-transparent  
@@ -66,6 +67,21 @@ const AboutPage = () => {
   const AboutTiles: Array<{ body: string, title: string }> = data.strapiAboutPage.accordion || [];
   const PageTitle: string = data.strapiAboutPage.title || '';
 
+  useEffect(() => {
+    const details = document.querySelectorAll('details');
+
+    // Add the onclick listeners.
+    details.forEach((targetDetail) => {
+      targetDetail.addEventListener('click', () => {
+      // Close all the details that are not targetDetail.
+        details.forEach((detail) => {
+          if (detail !== targetDetail) {
+            detail.removeAttribute('open');
+          }
+        });
+      });
+    });
+  }, []);
   return (
     <Layout>
       <SEO title="About me" />
@@ -75,7 +91,7 @@ const AboutPage = () => {
 
       <AboutContainer>
         {AboutTiles.map((res) => (
-          <div key={res.title}>
+          <div className="accordion-tile" key={res.title}>
             <StyledDetails>
               <summary>
                 <AccordionTitle className="accordion-toggle">
@@ -101,6 +117,7 @@ const AboutPage = () => {
 
         </BottomLeftBlobWrapper>
       </AboutContainer>
+      <Scroll showBelow={250} />
     </Layout>
   );
 };
