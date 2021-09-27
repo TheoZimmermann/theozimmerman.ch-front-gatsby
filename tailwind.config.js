@@ -36,6 +36,8 @@ module.exports = {
   },
   variants: {
     extend: {
+      filter: ['group-hover'],
+      scale: ['group-hover'],
       transform: ['group-hover'],
       fill: ['hover', 'focus'],
       textColor: ['active'],

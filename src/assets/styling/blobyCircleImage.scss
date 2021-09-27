@@ -21,3 +21,13 @@
         border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
     }
 }
+
+.project-link {
+    &:hover {
+       
+        .circle {
+            @apply transform scale-105 filter-none;
+        }
+        @apply no-underline;
+    }
+}

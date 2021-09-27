@@ -11,6 +11,8 @@ import tw from 'twin.macro';
 import Header from './header';
 import Footer from './footer';
 import '../assets/styling/layout.scss';
+import '../assets/styling/fonts.scss';
+import '../assets/styling/dark-light-body.scss';
 
 const SiteWrapper = tw.div`
 text-text-main  w-screen h-screen
